@@ -1,0 +1,47 @@
+//Without recursion
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n1 = 0, n2 = 1, n3, i=2, number;
+    cout << "Enter the number of elements: ";
+    cin >> number;
+    cout << n1 << " " << n2 << " "; //printing 0 and 1
+    while(i<number)    //loop starts from 2 because 0 and 1 are already printed
+    {
+        n3 = n1 + n2;
+        cout << n3 << " ";
+        n1 = n2;
+        n2 = n3;
+        i++;
+    }
+    return 0;
+}
+
+//Using Recursion
+
+#include <iostream>
+using namespace std;
+void printFibonacci(int n)
+{
+    static int n1 = 0, n2 = 1, n3;
+    if (n > 0)
+    {
+        n3 = n1 + n2;
+        n1 = n2;
+        n2 = n3;
+        cout << n3 << " ";
+        printFibonacci(n - 1);
+    }
+}
+int main()
+{
+    int number;
+    cout<<"Enter the limit: ";
+    cin>>number;
+    cout<<"0 "<<"1 ";
+    printFibonacci(number-2);
+    return 0;
+}
